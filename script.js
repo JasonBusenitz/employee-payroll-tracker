@@ -3,8 +3,8 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
 
-const employeesArray = []
 
+const employeesArray = []
 const collectEmployees = function () {
 
   while (addEmployeesBtn || addMore) {
@@ -14,14 +14,15 @@ const collectEmployees = function () {
       lastName: window.prompt('Add Employee Last Name'),
       salary: window.prompt("Add Employee Salary")
     };
+    employeesArray.push(employeeData);
 
     const addMore = window.confirm("Do you wish to add another employee?");
 
-    employeesArray.push(employeeData);
 
     if (addMore) {
     } else {
-      return;
+
+      return employeesArray;
     };
   };
 };
@@ -29,12 +30,21 @@ const collectEmployees = function () {
 
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
-  // TODO: Calculate and display the average salary
+  let average = 0;
+  let sum = 0;
+  for (i = 0; i < employeesArray.length; i++) {
+    const currentEmployee = employeesArray[i]
+    sum = sum += parseInt(currentEmployee.salary);
+  }
+  average = sum / employeesArray.length;
+  return console.log(`This is the average salary $${average}`);
 };
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
-  // TODO: Select and display a random employee
+  const object = employeesArray[Math.floor(Math.random() * employeesArray.length)];
+  const winner = object.firstName;
+  return console.log(`The winner of the random drawing is ${winner}!!!`);
 };
 
 /*
