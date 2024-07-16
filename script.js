@@ -31,26 +31,30 @@ const collectEmployees = function () {
 
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
-  let average = 0;
+  let averageSalary = 0;
   let sum = 0;
-  for (i = 0; i < employeesArray.length; i++) {
-    const currentEmployee = employeesArray[i]
+  const numberOfEmployees = employeesArray.length;
+
+
+  for (i = 0; i < numberOfEmployees; i++) {
+    const currentEmployee = employeesArray[i];
     sum = sum += parseFloat(currentEmployee.salary);
   }
-  average = sum / employeesArray.length;
-  const averageFixed = average.toFixed(2);
+  averageSalary = sum / numberOfEmployees;
+  const averageSalaryWithTwoDecimals = averageSalary.toFixed(2);
 
-  if (Number.isInteger(average)) {
-    return console.log(`The average salary between our ${employeesArray.length} employee(s) is $${average}`);
+  if (Number.isInteger(averageSalary)) {
+    return console.log(`The average salary between our ${numberOfEmployees} employee(s) is $${averageSalary}`);
   } else {
-    console.log(`The average salary between our ${employeesArray.length} employee(s) is $${averageFixed}`);
-  }
+    return console.log(`The average salary between our ${numberOfEmployees} employee(s) is $${averageSalaryWithTwoDecimals}`);
 
+  };
 
 };
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
+
   const employee = employeesArray[Math.floor(Math.random() * employeesArray.length)];
   return console.log(`Congradulations to ${employee.firstName} ${employee.lastName}, our random drawing winner!`);
 };
