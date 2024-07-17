@@ -43,12 +43,8 @@ const displayAverageSalary = function (employeesArray) {
   averageSalary = sum / numberOfEmployees;
   const averageSalaryWithTwoDecimals = averageSalary.toFixed(2);
 
-  if (Number.isInteger(averageSalary)) {
-    return console.log(`The average salary between our ${numberOfEmployees} employee(s) is $${averageSalary}`);
-  } else {
-    return console.log(`The average salary between our ${numberOfEmployees} employee(s) is $${averageSalaryWithTwoDecimals}`);
+  console.log(`The average employee salary between our ${numberOfEmployees} employee(s) is $${averageSalaryWithTwoDecimals}`);
 
-  };
 
 };
 
@@ -56,7 +52,7 @@ const displayAverageSalary = function (employeesArray) {
 const getRandomEmployee = function (employeesArray) {
 
   const employee = employeesArray[Math.floor(Math.random() * employeesArray.length)];
-  return console.log(`Congradulations to ${employee.firstName} ${employee.lastName}, our random drawing winner!`);
+  return console.log(`Congratulations to ${employee.firstName} ${employee.lastName}, our random drawing winner!`);
 };
 
 /*
